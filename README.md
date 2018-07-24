@@ -2,16 +2,16 @@
 
 ```
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
+	repositories {
+	...
+	maven { url 'https://jitpack.io' }
 		}
 	}
 ```
 
 ```
 dependencies {
-	        implementation 'com.github.wenbinAndroid:photopicker:master'
+	 implementation 'com.github.wenbinAndroid:photopicker:master'
 	}
 
 ```
