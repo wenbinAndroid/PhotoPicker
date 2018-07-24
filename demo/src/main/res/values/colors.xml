@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#4CAF50</color>
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="navigationBarColor">#333333</color>
+
+    <color name="colorPrimaryDarkTrans">#CC4CAF50</color>
+
+
+    <!-- ========================== 自定义 PhotoPicker 颜色 START ========================== -->
+    <!-- 可以在你项目的 mipmap-xxhdpi 目录中添加 https://github.com/bingoogolapple/BGAPhotoPicker-Android/tree/master/library/src/main/res/mipmap-xxhdpi 中相应的同名图片文件来替换图片样式 -->
+    <!-- PhotoPicker 状态栏的颜色 -->
+
+    <!-- ========================== 自定义 PhotoPicker 颜色 END ========================== -->
+</resources>
