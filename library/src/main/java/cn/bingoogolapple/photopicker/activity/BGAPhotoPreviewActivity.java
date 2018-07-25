@@ -93,14 +93,6 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
             return this;
         }
 
-        /* *//**
-         * 当前预览的图片路径
-         *//*
-        public IntentBuilder previewPhoto(String photoPath) {
-            mIntent.putStringArrayListExtra(EXTRA_PREVIEW_PHOTOS, new ArrayList<>(Arrays.asList(photoPath)));
-            return this;
-        }*/
-
         /**
          * 图片预览地址获取
          *
@@ -111,14 +103,7 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
             PhotoPreviewUtils.getInstant().addListener(listener);
             return this;
         }
-        /*
-         *//**
-         * 当前预览的图片路径集合
-         *//*
-        public IntentBuilder previewPhotos(ArrayList<String> previewPhotos) {
-            mIntent.putStringArrayListExtra(EXTRA_PREVIEW_PHOTOS, previewPhotos);
-            return this;
-        }*/
+
 
         /**
          * 当前预览的图片索引
@@ -137,6 +122,9 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
     protected void initView(Bundle savedInstanceState) {
         setNoLinearContentView(R.layout.bga_pp_activity_photo_preview);
         mContentHvp = findViewById(R.id.hvp_photo_preview_content);
+        mToolbar.setVisibility(View.GONE);
+        mIvDown = findViewById(R.id.iv_down);
+        mTvCount = findViewById(R.id.tv_count);
     }
 
     @Override
@@ -162,14 +150,13 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
 
     }
 
+
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mSavePhotoDir = (File) getIntent().getSerializableExtra(EXTRA_SAVE_PHOTO_DIR);
         if (mSavePhotoDir != null && !mSavePhotoDir.exists()) {
             mSavePhotoDir.mkdirs();
         }
-        mIvDown = findViewById(R.id.iv_down);
-        mTvCount = findViewById(R.id.tv_count);
         int currentPosition = getIntent().getIntExtra(EXTRA_CURRENT_POSITION, 0);
         mPhotoPreListener = PhotoPreviewUtils.getInstant().getListener();
         if (mPhotoPreListener != null) {
@@ -178,7 +165,6 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
             mContentHvp.setAdapter(mPhotoPageAdapter);
             mContentHvp.setCurrentItem(currentPosition);
             changePositionText(currentPosition);
-            mToolbar.setVisibility(View.GONE);
         }
         mIvDown.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +185,7 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
             finish();
         }
     }
+
 
     private void showTitleBar() {
         if (mToolbar != null) {

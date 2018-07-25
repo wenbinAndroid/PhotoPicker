@@ -48,6 +48,7 @@ import cn.bingoogolapple.photopicker.util.BGAAsyncTask;
 import cn.bingoogolapple.photopicker.util.BGAPhotoHelper;
 import cn.bingoogolapple.photopicker.util.BGALoadPhotoTask;
 import cn.bingoogolapple.photopicker.util.BGAPhotoPickerUtil;
+import cn.bingoogolapple.photopicker.util.PreViewConfig;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
@@ -192,10 +193,11 @@ public class BGAPhotoPickerActivity extends BGAPPToolbarActivity implements BGAO
     protected void processLogic(Bundle savedInstanceState) {
         // 获取拍照图片保存目录
         File cameraFileDir = (File) getIntent().getSerializableExtra(EXTRA_CAMERA_FILE_DIR);
-        if (cameraFileDir != null) {
-            mTakePhotoEnabled = true;
-            mPhotoHelper = new BGAPhotoHelper(cameraFileDir);
+        if (cameraFileDir == null) {
+            cameraFileDir = new File(PreViewConfig.sSaveDir);
         }
+        mTakePhotoEnabled = true;
+        mPhotoHelper = new BGAPhotoHelper(cameraFileDir);
         // 获取图片选择的最大张数
         mMaxChooseCount = getIntent().getIntExtra(EXTRA_MAX_CHOOSE_COUNT, 1);
         if (mMaxChooseCount < 1) {

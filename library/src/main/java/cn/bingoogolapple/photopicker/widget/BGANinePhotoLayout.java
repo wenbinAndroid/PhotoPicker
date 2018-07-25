@@ -57,7 +57,15 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
 
     private int mItemWidth;
     private List<T> mData;
+
+    private boolean mPreViewByLibrary = true;
     private WeakReference<PhotoPreListener> mPhotoPreListenerWeakReference;
+
+    public void setSaveDir(String saveDir) {
+        this.mSaveDir = saveDir;
+    }
+
+    private String mSaveDir;
 
     public BGANinePhotoLayout(Context context) {
         this(context, null);
@@ -93,6 +101,7 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
         typedArray.recycle();
     }
 
+
     private void initCustomAttr(int attr, TypedArray typedArray) {
         if (attr == R.styleable.BGANinePhotoLayout_bga_npl_showAsLargeWhenOnlyOne) {
             mShowAsLargeWhenOnlyOne = typedArray.getBoolean(attr, mShowAsLargeWhenOnlyOne);
@@ -109,6 +118,10 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
         } else if (attr == R.styleable.BGANinePhotoLayout_bga_npl_itemSpanCount) {
             mItemSpanCount = typedArray.getInteger(attr, mItemSpanCount);
         }
+    }
+
+    public void setPreViewByLibrary(boolean preViewByLibrary) {
+        mPreViewByLibrary = preViewByLibrary;
     }
 
     private void afterInitDefaultAndCustomAttrs() {
@@ -144,9 +157,11 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
     public void onClick(View view) {
         mCurrentClickItemPosition = 0;
         if (mDelegate != null) {
-            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getData());
+            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition,
+                    mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getData());
         }
     }
+
 
     public void setPreListener() {
 
@@ -239,7 +254,6 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
             if (mPhotoPreListenerWeakReference != null) {
                 PhotoPreListener listener = mPhotoPreListenerWeakReference.get();
                 if (listener != null) {
-
                     String path = listener.getPhotoPath(position);
                     BGAImage.display(helper.getImageView(R.id.iv_item_nine_photo_photo), mPlaceholderDrawableResId,
                             path, mImageSize);
@@ -251,4 +265,6 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
     public interface Delegate<T> {
         void onClickNinePhotoItem(BGANinePhotoLayout ninePhotoLayout, View view, int position, T model, List<T> models);
     }
+
+
 }
