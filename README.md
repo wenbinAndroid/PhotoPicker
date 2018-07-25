@@ -84,7 +84,7 @@ layout.setData((ArrayList<PhotoData.Data>) item.data, new PhotoPreListener() {
             }
         });
 ```
-
+![photo](https://github.com/wenbinAndroid/photopicker/blob/master/image/%E5%88%97%E8%A1%A8.png)
 ###### 查看大图
 ```java
 layout.setDelegate(new BGANinePhotoLayout.Delegate<PhotoData.Data>() {
@@ -109,7 +109,7 @@ layout.setDelegate(new BGANinePhotoLayout.Delegate<PhotoData.Data>() {
         });
 
 ```
-
+![photo2](https://github.com/wenbinAndroid/photopicker/blob/master/image/%E5%A4%A7%E5%9B%BE.png)
 #### Thanks [bingoogolapple](https://github.com/bingoogolapple)
 
 
