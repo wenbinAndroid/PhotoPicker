@@ -3,7 +3,7 @@
 
 #### 为什么会有这个
 
-#####  谢谢[bingoogolapple](https://github.com/bingoogolapple)大牛提供了这么方便的图片选择库,发现九宫格和打开大图功能在项目上有点不太方便,后台的图片数据并不是单单String 格式,而是对象的形式,所以每次都需要提前遍历遍历循环出来,不太方便,所以就有了这个修改,使用泛型来解耦,通过回调的方式来获取图片路径
+#####  使用这个图库的时,发现九宫格和打开大图功能在项目上有点不太方便,后台的图片数据并不是单单String 格式,而是对象的形式,所以每次都需要提前遍历遍历循环出来,不太方便.所以就有了这个修改,使用泛型来解耦,通过回调的方式来获取图片路径,并增加设置默认地址,修改预览大图的样式
 	
 ```java
 public interface PhotoPreListener {
@@ -110,7 +110,7 @@ layout.setDelegate(new BGANinePhotoLayout.Delegate<PhotoData.Data>() {
 
 ```
 
-##### 增加了设置默认缓存地址,不用每次都去设置,还修改预览界面的样式
+##### 设置默认缓存地址
 ```java
 public class PreViewConfig {
     public static String sSaveDir;
