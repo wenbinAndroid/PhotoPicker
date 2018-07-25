@@ -13,7 +13,7 @@ public interface PhotoPreListener {
     int getCount();
 }
 
-```java
+```
 ```
 allprojects {
 	repositories {
