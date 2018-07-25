@@ -109,6 +109,16 @@ layout.setDelegate(new BGANinePhotoLayout.Delegate<PhotoData.Data>() {
         });
 
 ```
+
+##### 增加了设置默认缓存地址,不用每次都去设置,还修改预览界面的样式
+```java
+public class PreViewConfig {
+    public static String sSaveDir;
+    public static void setSaveDir(String saveDir) {
+        sSaveDir = saveDir;
+    }
+}
+```
 ![photo2](https://github.com/wenbinAndroid/photopicker/blob/master/image/%E5%A4%A7%E5%9B%BE.png)
 #### Thanks [bingoogolapple](https://github.com/bingoogolapple)
 
