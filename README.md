@@ -14,6 +14,7 @@ public interface PhotoPreListener {
 }
 
 ```
+#### 如何使用
 ```
 allprojects {
 	repositories {
