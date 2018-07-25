@@ -14,6 +14,37 @@ public interface PhotoPreListener {
 }
 
 ```
+#### 在图片预览将通过Utils将listener存储起来,在需要的地方通过获取最上层的Listener通过回调回调获取,在界面结束的时候在移除最顶层的listener
+
+```java
+public class PhotoPreviewUtils {
+    private static PhotoPreviewUtils sPreviewUtils;
+    private static List<PhotoPreListener> mPreListeners = new ArrayList<>();
+    public static PhotoPreviewUtils getInstant() {
+        if (sPreviewUtils == null) {
+            synchronized (PhotoPreviewUtils.class) {
+                if (sPreviewUtils == null) {
+                    sPreviewUtils = new PhotoPreviewUtils();
+                }
+            }
+        }
+        return sPreviewUtils;
+    }
+  //add
+ public void addListener(PhotoPreListener listeners) {
+        mPreListeners.add(listeners);
+    }
+ 
+ //remove
+ public void removeListener(PhotoPreListener listener) {
+        int size = mPreListeners.size();
+        if (size >= 1) {
+            mPreListeners.remove(size - 1);
+        }
+    }
+```
+
+
 #### 如何使用
 ```
 allprojects {
