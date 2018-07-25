@@ -65,7 +65,7 @@ dependencies {
 ```
 
 
-###### RecyclerView中使用
+##### RecyclerView中使用
 
 ###### 九宫格 
 ```java
