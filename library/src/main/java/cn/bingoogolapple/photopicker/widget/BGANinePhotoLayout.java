@@ -267,4 +267,5 @@ public class BGANinePhotoLayout<T> extends FrameLayout implements AdapterView.On
     }
 
 
+
 }

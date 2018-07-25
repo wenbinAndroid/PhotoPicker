@@ -44,6 +44,7 @@ import cn.bingoogolapple.photopicker.pre.PhotoPreviewUtils;
 import cn.bingoogolapple.photopicker.util.BGAAsyncTask;
 import cn.bingoogolapple.photopicker.util.BGAPhotoPickerUtil;
 import cn.bingoogolapple.photopicker.util.BGASavePhotoTask;
+import cn.bingoogolapple.photopicker.util.PreViewConfig;
 import cn.bingoogolapple.photopicker.widget.BGAHackyViewPager;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -154,7 +155,10 @@ public class BGAPhotoPreviewActivity extends BGAPPToolbarActivity implements Pho
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mSavePhotoDir = (File) getIntent().getSerializableExtra(EXTRA_SAVE_PHOTO_DIR);
-        if (mSavePhotoDir != null && !mSavePhotoDir.exists()) {
+        if (mSavePhotoDir == null) {
+            mSavePhotoDir = new File(PreViewConfig.sSaveDir);
+        }
+        if (!mSavePhotoDir.exists()) {
             mSavePhotoDir.mkdirs();
         }
         int currentPosition = getIntent().getIntExtra(EXTRA_CURRENT_POSITION, 0);

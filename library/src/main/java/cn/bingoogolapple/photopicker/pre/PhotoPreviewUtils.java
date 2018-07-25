@@ -22,22 +22,19 @@ public class PhotoPreviewUtils {
         return sPreviewUtils;
     }
 
-    private PhotoPreviewUtils() {
-
-    }
-
     public void addListener(PhotoPreListener listeners) {
         mPreListeners.add(listeners);
     }
 
+    private PhotoPreviewUtils() {
+
+    }
+
+
     public void removeListener(PhotoPreListener listener) {
         int size = mPreListeners.size();
-        for (int i = 0; i < size; i++) {
-            PhotoPreListener preListener = mPreListeners.get(i);
-            if (preListener == listener) {
-                mPreListeners.remove(listener);
-                break;
-            }
+        if (size >= 1) {
+            mPreListeners.remove(size - 1);
         }
     }
 

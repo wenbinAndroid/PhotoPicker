@@ -6,7 +6,6 @@ package cn.bingoogolapple.photopicker.util;
  */
 public class PreViewConfig {
     public static String sSaveDir;
-
     public static void setSaveDir(String saveDir) {
         sSaveDir = saveDir;
     }

@@ -196,6 +196,9 @@ public class BGAPhotoPickerActivity extends BGAPPToolbarActivity implements BGAO
         if (cameraFileDir == null) {
             cameraFileDir = new File(PreViewConfig.sSaveDir);
         }
+        if (!cameraFileDir.exists()) {
+            cameraFileDir.mkdirs();
+        }
         mTakePhotoEnabled = true;
         mPhotoHelper = new BGAPhotoHelper(cameraFileDir);
         // 获取图片选择的最大张数
