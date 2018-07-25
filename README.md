@@ -14,7 +14,7 @@ public interface PhotoPreListener {
 }
 
 ```
-#### 在图片预览将通过Utils将listener存储起来,在需要的地方通过获取最上层的Listener通过回调回调获取,在界面结束的时候在移除最顶层的listener
+##### 在图片预览将通过Utils将listener存储起来,在需要的地方通过获取最上层的Listener通过回调回调获取,在界面结束的时候在移除最顶层的listener
 
 ```java
 public class PhotoPreviewUtils {
