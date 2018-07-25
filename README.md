@@ -58,7 +58,7 @@ allprojects {
 ```
 dependencies {
 
-	 implementation 'com.github.wenbinAndroid:photopicker:master'
+	implementation 'com.github.wenbinAndroid:photopicker:v1.0.1'
 	 
 	}
 
