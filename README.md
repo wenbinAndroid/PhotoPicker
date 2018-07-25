@@ -1,6 +1,8 @@
 #### 在[BGAPhotoPicker-Android](https://github.com/bingoogolapple/BGAPhotoPicker-Android)基础上进行了修改
 
 
+### Thanks [bingoogolapple](https://github.com/bingoogolapple)
+
 #### 为什么会有这个
 
 #####  使用这个图库的时候,发现九宫格和打开大图功能在项目上有点不太方便,后台的图片数据并不是单单String 格式,而是对象的形式,所以每次都需要提前遍历遍历循环出来,不太方便.所以就有了这个修改,使用泛型来解耦,通过回调的方式来获取图片路径,并增加设置默认地址,修改预览大图的样式
@@ -120,7 +122,6 @@ public class PreViewConfig {
 }
 ```
 ![photo2](https://github.com/wenbinAndroid/photopicker/blob/master/image/%E5%A4%A7%E5%9B%BE.png)
-#### Thanks [bingoogolapple](https://github.com/bingoogolapple)
 
 
 
